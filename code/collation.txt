@@ -1,0 +1,24 @@
+You set the collation at the server level when you initially install SQL Server. 
+The collation serves as the default collation for all system databases and user databases, unless a different collation is specified at the database or column level. 
+You can assign any collation at the server instance, except Unicode-only collations.
+
+When you define a user database, you can set the default collation as part of the database definition.
+To specify a collation when creating a user database, you add a COLLATE clause to the database definition. The clause must point to one of the collations supported by your SQL Server instance. As with server-level collations, you cannot specify a Unicode-only collation. To test this out, let’s try to create a database using the Indic_General_100_CS_AS collation:
+
+USE master;
+  GO
+  DROP DATABASE IF EXISTS TestCollations;
+  GO
+  CREATE DATABASE TestCollations
+  COLLATE Indic_General_100_CS_AS;
+  GO
+  
+We can also use the COLLATE clause in an ALTER DATABASE statement if we want to change the default collation:
+
+ALTER DATABASE TestCollations
+  COLLATE Latin1_General_100_CI_AS;
+  GO  
+  
+  
+Also for more undocumented info
+https://www.mssqltips.com/sqlservertip/3519/changing-sql-server-collation-after-installation/
