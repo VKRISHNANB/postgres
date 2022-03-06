@@ -1,0 +1,16 @@
+RDBMS Basics
+Data Types
+Querying & Filtering Data
+Managing Tables
+Modifying Data
+Conditionals
+Control Flow
+Transactions & Constraints
+Working with JOINS & Schemas
+Subquery & CTEs
+Functions
+Variables & Constants
+Stored Procedures
+Working with Triggers
+Working with Views & Indexes
+Errors & Exception Handling

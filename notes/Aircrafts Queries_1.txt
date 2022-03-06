@@ -1,0 +1,25 @@
+Aircraft Sample Queries
+==========
+1. SELECT * FROM aircrafts;
+2. SELECT   a.aircraft_code,
+         a.model,
+         s.seat_no,
+         s.fare_conditions
+	FROM     aircrafts a
+			 JOIN seats s ON a.aircraft_code = s.aircraft_code
+	WHERE    a.model = 'Cessna 208 Caravan'
+	ORDER BY s.seat_no;
+
+3. SELECT   s2.aircraft_code,
+         string_agg (s2.fare_conditions || '(' || s2.num::text || ')',
+                     ', ') as fare_conditions
+	FROM     (
+			  SELECT   s.aircraft_code, s.fare_conditions, count(*) as num
+			  FROM     seats s
+			  GROUP BY s.aircraft_code, s.fare_conditions
+			  ORDER BY s.aircraft_code, s.fare_conditions
+			 ) s2
+	GROUP BY s2.aircraft_code
+	ORDER BY s2.aircraft_code;
+	
+4.
