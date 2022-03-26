@@ -24,5 +24,6 @@ Build the Northwind Tables and Objects
 	northwind=# \i <path>/northwind_ddl.sql
 verify that all tables have been created by executing:
 	northwind=# \d
+======================================	
 	
 =============================
